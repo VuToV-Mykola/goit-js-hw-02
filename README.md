@@ -20,7 +20,7 @@
 
 [SOLOLEARN](https://www.sololearn.com/certificates/CT-VJXN3HQH)
 
-# JavaScript Homework 01
+# JavaScript Homework 02
 
 ## Task 1. Droid Orders
 
@@ -28,99 +28,144 @@
 
 The repair droid sales station is ready to go, all that remains is to write the software for the sales department.
 
-Declare the `makeTransaction` function, which expects two parameters:
-- `quantity` — the first parameter, a number containing the number of ordered droids
-- `pricePerDroid` — the second parameter, a number containing the cost of one droid
+Declare the `makeTransaction(quantity, pricePerDroid, customerCredits)` function, which composes and returns a message about purchasing repair droids.
 
-Add the code of the function so that it returns a string with a message about the purchase of repair droids:
+It declares three parameters, whose values will be set when calling it:
+- `quantity` — number of ordered droids
+- `pricePerDroid` — price of one droid
+- `customerCredits` — amount of funds in the customer's account
 
-`"You ordered <quantity> droids worth <totalPrice> credits!"`
-
-Where:
-- `<quantity>` is the number of droids ordered
-- `<totalPrice>` is the total cost of the order (cost of all droids ordered)
+Complete the function as follows:
+- Declare a variable to store the total order amount (total cost of all ordered droids) and assign it an expression to calculate this amount.
+- Add a check whether the customer can pay for the order:
+  - if the amount to be paid exceeds the number of credits in the customer's account, the function should return the string `"Insufficient funds!"`
+  - otherwise, the function should return the string `"You ordered <quantity> droids worth <totalPrice> credits!"`, where `<quantity>` is the number of ordered droids, and `<totalPrice>` is their total cost.
 
 ### Test Code
 
 Add the following code after your function declaration to check its correctness:
 
 ```javascript
-console.log(makeTransaction(5, 3000)); // "You ordered 5 droids worth 15000 credits!"
-console.log(makeTransaction(3, 1000)); // "You ordered 3 droids worth 3000 credits!"
-console.log(makeTransaction(10, 500)); // "You ordered 10 droids worth 5000 credits!"
+console.log(makeTransaction(5, 3000, 23000)); // "You ordered 5 droids worth 15000 credits!"
+console.log(makeTransaction(3, 1000, 15000)); // "You ordered 3 droids worth 3000 credits!"
+console.log(makeTransaction(10, 5000, 8000)); // "Insufficient funds!"
+console.log(makeTransaction(8, 2000, 10000)); // "Insufficient funds!"
+console.log(makeTransaction(10, 500, 5000)); // "You ordered 10 droids worth 5000 credits!"
 ```
 
 ### Mentor Review Criteria
 
-- Declared function `makeTransaction(quantity, pricePerDroid)`
-- Calling `makeTransaction(5, 3000)` returns `"You ordered 5 droids worth 15000 credits!"`
-- Calling `makeTransaction(3, 1000)` returns `"You ordered 3 droids worth 3000 credits!"`
-- Calling `makeTransaction(10, 500)` returns `"You ordered 10 droids worth 5000 credits!"`
-- All test results are output to the console
-- Function works correctly with any valid arguments
+- Declared function `makeTransaction(quantity, pricePerDroid, customerCredits)`
+- Calling `makeTransaction(5, 3000, 23000)` returns `"You ordered 5 droids worth 15000 credits!"`
+- Calling `makeTransaction(3, 1000, 15000)` returns `"You ordered 3 droids worth 3000 credits!"`
+- Calling `makeTransaction(10, 5000, 8000)` returns `"Insufficient funds!"`
+- Calling `makeTransaction(8, 2000, 10000)` returns `"Insufficient funds!"`
+- Calling `makeTransaction(10, 500, 5000)` returns `"You ordered 10 droids worth 5000 credits!"`
 
-## Task 2. Product Delivery
+## Task 2. Message Formatting
 
 **File:** `task-2.js`
 
-Declare the `getShippingMessage` function, which expects three parameters:
-- `country` — the first parameter, a string containing the delivery country
-- `price` — the second parameter, a number containing the total product cost
-- `deliveryFee` — the third parameter, a number containing the delivery cost
+Declare the `formatMessage(message, maxLength)` function, which takes a string (parameter `message`) and checks its length according to the given maximum length (parameter `maxLength`).
 
-Add the code of the function so that it returns a string with a message about product delivery:
-
-`"Shipping to <country> will cost <totalPrice> credits"`
-
-Where:
-- `<country>` is the delivery country
-- `<totalPrice>` is the total order cost (product cost + delivery cost)
+Complete the function code so that:
+- If the string length is equal to or less than `maxLength`, then the function returns the original string unchanged.
+- If the length exceeds `maxLength`, then the function truncates the string to `maxLength` characters, adds ellipsis `"..."` at the end and returns the truncated version.
 
 ### Test Code
 
-Add the following code after your function declaration:
+Add the following code after your function declaration to check its correctness:
 
 ```javascript
-console.log(getShippingMessage("Australia", 120, 50)); // "Shipping to Australia will cost 170 credits"
-console.log(getShippingMessage("Germany", 80, 20)); // "Shipping to Germany will cost 100 credits"
-console.log(getShippingMessage("Sweden", 100, 20)); // "Shipping to Sweden will cost 120 credits"
+console.log(formatMessage("Curabitur ligula sapien", 16)); // "Curabitur ligula..."
+console.log(formatMessage("Curabitur ligula sapien", 23)); // "Curabitur ligula sapien"
+console.log(formatMessage("Vestibulum facilisis purus nec", 20)); // "Vestibulum facilisis..."
+console.log(formatMessage("Vestibulum facilisis purus nec", 30)); // "Vestibulum facilisis purus nec"
+console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15)); // "Nunc sed turpis..."
+console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 41)); // "Nunc sed turpis a felis in nunc fringilla"
 ```
 
 ### Mentor Review Criteria
 
-- Declared function `getShippingMessage(country, price, deliveryFee)`
-- Calling `getShippingMessage("Australia", 120, 50)` returns `"Shipping to Australia will cost 170 credits"`
-- Calling `getShippingMessage("Germany", 80, 20)` returns `"Shipping to Germany will cost 100 credits"`
-- Calling `getShippingMessage("Sweden", 100, 20)` returns `"Shipping to Sweden will cost 120 credits"`
-- Function works correctly with any valid arguments
+- Declared function `formatMessage(message, maxLength)`
+- Calling `formatMessage("Curabitur ligula sapien", 16)` returns `"Curabitur ligula..."`
+- Calling `formatMessage("Curabitur ligula sapien", 23)` returns `"Curabitur ligula sapien"`
+- Calling `formatMessage("Vestibulum facilisis purus nec", 20)` returns `"Vestibulum facilisis..."`
+- Calling `formatMessage("Vestibulum facilisis purus nec", 30)` returns `"Vestibulum facilisis purus nec"`
+- Calling `formatMessage("Nunc sed turpis a felis in nunc fringilla", 15)` returns `"Nunc sed turpis..."`
+- Calling `formatMessage("Nunc sed turpis a felis in nunc fringilla", 41)` returns `"Nunc sed turpis a felis in nunc fringilla"`
 
-## Task 3. Element Width
+## Task 3. Spam Check
 
 **File:** `task-3.js`
 
-Declare the `getElementWidth` function, which expects three parameters:
-- `content` — the first parameter, content width
-- `padding` — the second parameter, horizontal padding value for each side
-- `border` — the third parameter, border thickness value for each side
+The `checkForSpam(message)` function takes a string (parameter `message`), checks it for forbidden words `spam` and `sale`, and returns the check result. Words in the `message` parameter string can be in any case, for example `SPAM` or `sAlE`.
 
-All parameter values will be strings in the format `Npx` where N is any number (integer or decimal).
-
-Add the code of the function so that it returns a number — the total element width. When calculating the total width, consider that the `box-sizing` value equals `border-box`.
+Complete the function code so that:
+- If a forbidden word is found (`spam` or `sale`), then the function returns boolean `true`
+- If there are no forbidden words in the string, the function returns boolean `false`
 
 ### Test Code
 
-Add the following code after your function declaration:
+Add the following code after your function declaration to check its correctness:
 
 ```javascript
-console.log(getElementWidth("50px", "8px", "4px")); // 74
-console.log(getElementWidth("60px", "12px", "8.5px")); // 101
-console.log(getElementWidth("200px", "0px", "0px")); // 200
+console.log(checkForSpam("Latest technology news")); // false
+console.log(checkForSpam("JavaScript weekly newsletter")); // false
+console.log(checkForSpam("Get best sale offers now!")); // true
+console.log(checkForSpam("Amazing SalE, only tonight!")); // true
+console.log(checkForSpam("Trust me, this is not a spam message")); // true
+console.log(checkForSpam("Get rid of sPaM emails. Our book in on sale!")); // true
+console.log(checkForSpam("[SPAM] How to earn fast money?")); // true
 ```
 
 ### Mentor Review Criteria
 
-- Declared function `getElementWidth(content, padding, border)`
-- Calling `getElementWidth("50px", "8px", "4px")` returns number `74`
-- Calling `getElementWidth("60px", "12px", "8.5px")` returns number `101`
-- Calling `getElementWidth("200px", "0px", "0px")` returns number `200`
-- Function works correctly with any valid arguments
+- Declared function `checkForSpam(message)`
+- Calling `checkForSpam("Latest technology news")` returns `false`
+- Calling `checkForSpam("JavaScript weekly newsletter")` returns `false`
+- Calling `checkForSpam("Get best sale offers now!")` returns `true`
+- Calling `checkForSpam("Amazing SalE, only tonight!")` returns `true`
+- Calling `checkForSpam("Trust me, this is not a spam message")` returns `true`
+- Calling `checkForSpam("Get rid of sPaM emails. Our book in on sale!")` returns `true`
+- Calling `checkForSpam("[SPAM] How to earn fast money?")` returns `true`
+
+## Task 4. Product Delivery
+
+**File:** `task-4.js`
+
+Declare the `getShippingCost(country)` function, which should check the possibility of delivering goods to the user's country (parameter `country`) and return a message about the result. Be sure to use the `switch` statement.
+
+The format of the returned string is `"Shipping to <country> will cost <price> credits"`, where instead of `<country>` and `<price>` you need to substitute the corresponding values.
+
+List of countries and delivery cost:
+- China — 100 credits
+- Chile — 250 credits
+- Australia — 170 credits
+- Jamaica — 120 credits
+
+From the list you can see that delivery is not possible everywhere. If the specified country is not in the list, then the function should return the string `"Sorry, there is no delivery to your country"`.
+
+### Test Code
+
+Add the following code after your function declaration to check its correctness:
+
+```javascript
+console.log(getShippingCost("Australia")); // "Shipping to Australia will cost 170 credits"
+console.log(getShippingCost("Germany")); // "Sorry, there is no delivery to your country"
+console.log(getShippingCost("China")); // "Shipping to China will cost 100 credits"
+console.log(getShippingCost("Chile")); // "Shipping to Chile will cost 250 credits"
+console.log(getShippingCost("Jamaica")); // "Shipping to Jamaica will cost 120 credits"
+console.log(getShippingCost("Sweden")); // "Sorry, there is no delivery to your country"
+```
+
+### Mentor Review Criteria
+
+- Declared function `getShippingCost(country)`
+- The function body uses a `switch` statement
+- Calling `getShippingCost("Australia")` returns `"Shipping to Australia will cost 170 credits"`
+- Calling `getShippingCost("Germany")` returns `"Sorry, there is no delivery to your country"`
+- Calling `getShippingCost("China")` returns `"Shipping to China will cost 100 credits"`
+- Calling `getShippingCost("Chile")` returns `"Shipping to Chile will cost 250 credits"`
+- Calling `getShippingCost("Jamaica")` returns `"Shipping to Jamaica will cost 120 credits"`
+- Calling `getShippingCost("Sweden")` returns `"Sorry, there is no delivery to your country"`
