@@ -6,15 +6,15 @@
 [![📦 Size](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/VuToV-Mykola/goit-js-hw-01/main/assets/db/repo-size.json)](https://github.com/VuToV-Mykola/goit-js-hw-01)
 [![📄 License](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/VuToV-Mykola/goit-js-hw-01/main/assets/db/repo-license.json)](https://github.com/VuToV-Mykola/goit-js-hw-01/blob/main/LICENSE)
 
-## 📸 Скріншот проекту
+## 📸 Project Screenshot
 ![Project Screenshot](./assets/screenshot.png)
 <!-- END:AUTOGEN -->
 
-## Мої досягнення
+## My Achievements
 
-![Опис зображення](./assets/head.jpg) <!-- ![Опис зображення](./assets/hw-05.jpg) -->
+![Description](./assets/head.jpg) <!-- ![Description](./assets/hw-05.jpg) -->
 
-## Мої сертифікати - Пройшов курс на Sololearn :
+## My Certificates - Completed Sololearn Course:
 
 ![Certification Badge](./assets/certificat.jpg)
 
@@ -152,6 +152,23 @@ Add the following code after your function declaration to check its correctness:
 
 ```javascript
 console.log(getShippingCost("Australia")); // "Shipping to Australia will cost 170 credits"
+console.log(getShippingCost("Germany")); // "Sorry, there is no delivery to your country"
+console.log(getShippingCost("China")); // "Shipping to China will cost 100 credits"
+console.log(getShippingCost("Chile")); // "Shipping to Chile will cost 250 credits"
+console.log(getShippingCost("Jamaica")); // "Shipping to Jamaica will cost 120 credits"
+console.log(getShippingCost("Sweden")); // "Sorry, there is no delivery to your country"
+```
+
+### Mentor Review Criteria
+
+- Declared function `getShippingCost(country)`
+- The function body uses a `switch` statement
+- Calling `getShippingCost("Australia")` returns `"Shipping to Australia will cost 170 credits"`
+- Calling `getShippingCost("Germany")` returns `"Sorry, there is no delivery to your country"`
+- Calling `getShippingCost("China")` returns `"Shipping to China will cost 100 credits"`
+- Calling `getShippingCost("Chile")` returns `"Shipping to Chile will cost 250 credits"`
+- Calling `getShippingCost("Jamaica")` returns `"Shipping to Jamaica will cost 120 credits"`
+- Calling `getShippingCost("Sweden")` returns `"Sorry, there is no delivery to your country"`pingCost("Australia")); // "Shipping to Australia will cost 170 credits"
 console.log(getShippingCost("Germany")); // "Sorry, there is no delivery to your country"
 console.log(getShippingCost("China")); // "Shipping to China will cost 100 credits"
 console.log(getShippingCost("Chile")); // "Shipping to Chile will cost 250 credits"
